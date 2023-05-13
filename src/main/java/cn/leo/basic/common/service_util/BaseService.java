@@ -1,5 +1,6 @@
 package cn.leo.basic.common.service_util;
 
+import cn.leo.basic.model.base_entity.BaseEntity;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,7 +9,7 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseService<T, ID> {
+public interface BaseService<T , ID> {
     Class<T> getDomainClass();
 
     <S extends T> S save(S entity);

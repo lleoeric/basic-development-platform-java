@@ -4,6 +4,7 @@ import cn.leo.basic.model.system.Status;
 import cn.leo.basic.model.system.SystemDepartmentEntity;
 import cn.leo.basic.service_system.repository.SystemDepartmentRepository;
 import cn.leo.basic.service_system.repository.SystemRoleRepository;
+import cn.leo.basic.service_system.service.impl.SystemDepartmentServiceImpl;
 import cn.leo.basic.service_system.service.impl.SystemRoleServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ class BasicApplicationTests {
     private SystemRoleServiceImpl systemRoleService;
     @Autowired
     private SystemDepartmentRepository departmentRepository;
+    @Autowired
+    private SystemDepartmentServiceImpl departmentService;
 
     @Test
     void contextLoads() {
@@ -58,5 +61,14 @@ class BasicApplicationTests {
     void repoTest() {
         Optional<SystemDepartmentEntity> entity = departmentRepository.findById(UUID.fromString("2137d479-27c5-4aa6-9819-c30ff3e04346"));
         System.out.println((long) entity.orElseThrow().getChildren().size());
+    }
+
+    @Test
+    void deleteTest() {
+        departmentService.deleteById(UUID.fromString("2137d479-27c5-4aa6-9819-c30ff3e04346"));
+    }
+    @Test
+    void countTest(){
+        System.out.println((long) departmentService.findAll().size());
     }
 }

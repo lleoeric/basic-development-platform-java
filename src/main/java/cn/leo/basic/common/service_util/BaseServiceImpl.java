@@ -1,5 +1,6 @@
 package cn.leo.basic.common.service_util;
 
+import cn.leo.basic.model.base_entity.BaseEntity;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,7 +14,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class BaseServiceImpl<T, ID, R extends JpaRepository<T, ID>> implements BaseService<T, ID> {
+public class BaseServiceImpl<T extends BaseEntity, ID, R extends JpaRepository<T, ID>> implements BaseService<T, ID> {
     private static final Map<Class, Class> DOMAIN_CLASS_CACHE = new ConcurrentHashMap<>();
     private final R repository;
 
@@ -103,7 +104,7 @@ public class BaseServiceImpl<T, ID, R extends JpaRepository<T, ID>> implements B
 
     @Override
     public <S extends T> List<S> findAll(Example<S> example) {
-        return findAll(example);
+        return repository.findAll(example);
     }
 
     @Override
