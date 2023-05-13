@@ -1,9 +1,9 @@
-package cn.leo.basic.repository;
+package cn.leo.basic.service_system.repository;
 
 import cn.leo.basic.model.system.SystemRoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface SystemRoleEntityRepository extends JpaRepository<SystemRoleEntity, UUID> {
+public interface SystemRoleRepository extends JpaRepository<SystemRoleEntity, UUID> {
 }

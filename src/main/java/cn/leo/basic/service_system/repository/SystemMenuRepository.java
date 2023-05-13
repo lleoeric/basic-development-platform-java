@@ -1,9 +1,9 @@
-package cn.leo.basic.repository;
+package cn.leo.basic.service_system.repository;
 
 import cn.leo.basic.model.system.SystemMenuEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface SystemMenuEntityRepository extends JpaRepository<SystemMenuEntity, UUID> {
+public interface SystemMenuRepository extends JpaRepository<SystemMenuEntity, UUID> {
 }

@@ -2,10 +2,7 @@ package cn.leo.basic.model.system;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,6 +14,7 @@ import java.util.Set;
 @Entity(name = "system_role_entity")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "system_role_entity")
 public class SystemRoleEntity extends BaseEntity {
     @Column(name = "role_name")

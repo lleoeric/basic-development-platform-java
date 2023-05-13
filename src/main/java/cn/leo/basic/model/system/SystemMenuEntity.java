@@ -2,10 +2,7 @@ package cn.leo.basic.model.system;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -14,8 +11,9 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name ="system_menu_entity")
+@Entity(name = "system_menu_entity")
 @Table(name = "system_menu_entity")
+@Builder
 public class SystemMenuEntity extends BaseEntity {
     @Column(name = "name"/*, columnDefinition = "名称"*/)
     private String name;
@@ -53,11 +51,5 @@ public class SystemMenuEntity extends BaseEntity {
     @OneToMany(mappedBy = "parentId", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<SystemMenuEntity> children = new LinkedHashSet<>();
 
-    enum Type {
-        MENU(1),
-        BUTTON(2);
 
-        Type(int i) {
-        }
-    }
 }

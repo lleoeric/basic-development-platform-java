@@ -2,16 +2,14 @@ package cn.leo.basic.model.system;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name ="system_login_log_entity")
+@Entity(name = "system_login_log_entity")
 @Table(name = "system_login_log_entity")
 public class SystemLoginLogEntity extends BaseEntity {
     @Column(name = "username"/*,columnDefinition = "用户账号"*/)
@@ -26,7 +24,6 @@ public class SystemLoginLogEntity extends BaseEntity {
 
     @Column(name = "message"/*,columnDefinition = "提示信息"*/)
     private String message;
-
 
 
 }

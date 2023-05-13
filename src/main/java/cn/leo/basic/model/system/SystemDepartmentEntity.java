@@ -2,10 +2,7 @@ package cn.leo.basic.model.system;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +15,7 @@ import java.util.List;
 @Table(name = "system_department_entity", indexes = {
         @Index(name = "idx_departmentalisation", columnList = "parent_id")
 })
+@Builder
 public class SystemDepartmentEntity extends BaseEntity {
 
     @Column(name = "name"/*, columnDefinition = "部门名称"*/)
@@ -43,7 +41,7 @@ public class SystemDepartmentEntity extends BaseEntity {
     @ManyToOne(cascade = CascadeType.MERGE)
     private SystemDepartmentEntity parent;
 
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
     @OrderBy(value = "sortValue ASC")
     private List<SystemDepartmentEntity> children = new ArrayList<>();
 

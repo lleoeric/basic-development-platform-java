@@ -29,23 +29,22 @@ public class BaseEntity implements Serializable {
      * 主键id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private UUID id;
 
     @CreatedBy
-    private Long createUserId;
+    private UUID createUserId;
     @CreatedDate
     private Instant createTime;
 
     @LastModifiedBy
-    private Long lastModifiedUserId;
+    private UUID lastModifiedUserId;
     @LastModifiedDate
     private Instant lastModifiedTime;
 
     @Column(name = "is_deleted")
-    private Boolean isDeleted;
-
+    private Boolean isDeleted = false;
 
 
     @Override
