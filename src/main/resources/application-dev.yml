@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/base-admin
+    url: jdbc:postgresql://localhost:5432/base-admin?
     username: postgres
     password: 551200
     driver-class-name: org.postgresql.Driver
@@ -8,5 +8,8 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
 

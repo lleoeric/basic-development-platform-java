@@ -1,19 +1,23 @@
 package cn.leo.basic.model.system;
 
-import cn.leo.base.model.base_entity.BaseEntity;
+import cn.leo.basic.model.base_entity.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
-@Entity
+@Entity(name ="system_operation_log_entity")
 @Table(name = "system_operation_log_entity")
 public class SystemOperationLogEntity extends BaseEntity {
     @Column(name = "title")
     private String title;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "business_type")
     private BusinessType businessType;
 
@@ -23,7 +27,7 @@ public class SystemOperationLogEntity extends BaseEntity {
     @Column(name = "request_method")
     private String requestMethod;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "operator_type")
     private OperatorType operatorType;
 
@@ -46,7 +50,7 @@ public class SystemOperationLogEntity extends BaseEntity {
     @Column(name = "json_result")
     private String jsonResult;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
 

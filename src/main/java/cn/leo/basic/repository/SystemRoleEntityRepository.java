@@ -1,6 +1,6 @@
 package cn.leo.basic.repository;
 
-import cn.leo.base.model.system.SystemRoleEntity;
+import cn.leo.basic.model.system.SystemRoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

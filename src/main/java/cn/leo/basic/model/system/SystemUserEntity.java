@@ -1,8 +1,10 @@
 package cn.leo.basic.model.system;
 
-import cn.leo.base.model.base_entity.BaseEntity;
+import cn.leo.basic.model.base_entity.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -10,7 +12,9 @@ import java.util.Collection;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "system_user_entity")
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "system_user_entity")
 public class SystemUserEntity extends BaseEntity {
     @Column(name = "username")
@@ -39,7 +43,7 @@ public class SystemUserEntity extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
 
@@ -48,5 +52,7 @@ public class SystemUserEntity extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<SystemRoleEntity> roleList = new ArrayList<>();
+
+
 
 }

@@ -1,6 +1,6 @@
 package cn.leo.basic.repository;
 
-import cn.leo.base.model.system.SystemLoginLogEntity;
+import cn.leo.basic.model.system.SystemLoginLogEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
