@@ -1,6 +1,0 @@
-spring:
-  profiles:
-    active: dev
-    default: dev
-  application:
-    name: base-spring-boot
