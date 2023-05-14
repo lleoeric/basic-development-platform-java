@@ -1,4 +1,4 @@
-package cn.leo.basic.common.service_util;
+package cn.leo.basic.common.request_util.service;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

@@ -1,6 +1,8 @@
-package cn.leo.basic.model.system;
+package cn.leo.basic.model.system.entities;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
+import cn.leo.basic.model.system.base.Status;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,14 +11,14 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity(name = "system_department_entity")
+@Entity(name = "system_department")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "system_department_entity", indexes = {
+@Table(name = "system_department", indexes = {
         @Index(name = "idx_departmentalisation", columnList = "parent_id")
 })
 @Builder
-public class SystemDepartmentEntity extends BaseEntity {
+public class SystemDepartment extends BaseEntity {
 
     @Column(name = "name"/*, columnDefinition = "部门名称"*/)
     private String name;
@@ -37,13 +39,14 @@ public class SystemDepartmentEntity extends BaseEntity {
     @Column(name = "status"/*, columnDefinition = "状态（1(NORMAL)正常 0(STOP)停用）"*/)
     private Status status;
 
+    @JsonIgnore
+    @ManyToOne
+    private SystemDepartment parent;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private SystemDepartmentEntity parent;
-
-    @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
     @OrderBy(value = "sortValue ASC")
-    private List<SystemDepartmentEntity> children = new ArrayList<>();
+    @JsonIgnore
+    private List<SystemDepartment> children = new ArrayList<>();
 
 
 }

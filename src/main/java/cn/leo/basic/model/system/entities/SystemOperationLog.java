@@ -1,6 +1,9 @@
-package cn.leo.basic.model.system;
+package cn.leo.basic.model.system.entities;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
+import cn.leo.basic.model.system.base.BusinessType;
+import cn.leo.basic.model.system.base.OperatorType;
+import cn.leo.basic.model.system.base.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,9 +14,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-@Entity(name ="system_operation_log_entity")
-@Table(name = "system_operation_log_entity")
-public class SystemOperationLogEntity extends BaseEntity {
+@Entity(name ="system_operation_log")
+@Table(name = "system_operation_log")
+public class SystemOperationLog extends BaseEntity {
     @Column(name = "title")
     private String title;
 
@@ -36,7 +39,7 @@ public class SystemOperationLogEntity extends BaseEntity {
 
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "department_id_id")
-    private SystemDepartmentEntity departmentId;
+    private SystemDepartment departmentId;
 
     @Column(name = "operator_url")
     private String operatorUrl;
@@ -58,25 +61,6 @@ public class SystemOperationLogEntity extends BaseEntity {
     private String errorMessage;
 
 
-    enum OperatorType{
-        OTHER_USER(0),
-        BACK_USER(1),
-        PHONE_USER(2);
-
-        OperatorType(int i) {
 
 
-        }
-    }
-    enum BusinessType {
-        OTHER(0),
-        ADD(1),
-        UPDATE(2),
-        DELETE(3),
-        ;
-
-        BusinessType(int i) {
-
-        }
-    }
 }

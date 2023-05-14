@@ -1,4 +1,4 @@
-package cn.leo.basic.model.system;
+package cn.leo.basic.model.system.base;
 
 public enum Status{
     NORMAL(1),

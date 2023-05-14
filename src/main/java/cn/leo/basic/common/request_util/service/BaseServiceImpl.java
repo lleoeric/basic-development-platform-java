@@ -1,4 +1,4 @@
-package cn.leo.basic.common.service_util;
+package cn.leo.basic.common.request_util.service;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
 import org.springframework.data.domain.Example;
@@ -6,7 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;

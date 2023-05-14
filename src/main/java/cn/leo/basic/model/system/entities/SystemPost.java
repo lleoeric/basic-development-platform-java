@@ -1,6 +1,7 @@
-package cn.leo.basic.model.system;
+package cn.leo.basic.model.system.entities;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
+import cn.leo.basic.model.system.base.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,9 +12,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "system_post_entity")
-@Table(name = "system_post_entity")
-public class SystemPostEntity extends BaseEntity {
+@Entity(name = "system_post")
+@Table(name = "system_post")
+public class SystemPost extends BaseEntity {
 
     @Column(name = "post_code"/*,columnDefinition = "岗位编码"*/)
     private String postCode;

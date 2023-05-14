@@ -1,6 +1,8 @@
-package cn.leo.basic.model.system;
+package cn.leo.basic.model.system.entities;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
+import cn.leo.basic.model.system.base.Status;
+import cn.leo.basic.model.system.base.Type;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,10 +13,10 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "system_menu_entity")
-@Table(name = "system_menu_entity")
+@Entity(name = "system_menu")
+@Table(name = "system_menu")
 @Builder
-public class SystemMenuEntity extends BaseEntity {
+public class SystemMenu extends BaseEntity {
     @Column(name = "name"/*, columnDefinition = "名称"*/)
     private String name;
 
@@ -46,10 +48,10 @@ public class SystemMenuEntity extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "parent_id"/*, columnDefinition = "上级菜单"*/)
-    private SystemMenuEntity parentId;
+    private SystemMenu parentId;
 
     @OneToMany(mappedBy = "parentId", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<SystemMenuEntity> children = new LinkedHashSet<>();
+    private Set<SystemMenu> children = new LinkedHashSet<>();
 
 
 }

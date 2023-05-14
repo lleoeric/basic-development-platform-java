@@ -1,6 +1,7 @@
-package cn.leo.basic.model.system;
+package cn.leo.basic.model.system.entities;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
+import cn.leo.basic.model.system.base.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,11 +13,11 @@ import java.util.Collection;
 
 @Getter
 @Setter
-@Entity(name = "system_user_entity")
+@Entity(name = "system_user")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "system_user_entity")
-public class SystemUserEntity extends BaseEntity {
+@Table(name = "system_user")
+public class SystemUser extends BaseEntity {
     @Column(name = "username")
     private String username;
 
@@ -34,11 +35,11 @@ public class SystemUserEntity extends BaseEntity {
 
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "department_id")
-    private SystemDepartmentEntity departmentId;
+    private SystemDepartment departmentId;
 
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "post_id")
-    private SystemPostEntity postId;
+    private SystemPost postId;
 
     @Column(name = "description")
     private String description;
@@ -51,7 +52,7 @@ public class SystemUserEntity extends BaseEntity {
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Collection<SystemRoleEntity> roleList = new ArrayList<>();
+    private Collection<SystemRole> roleList = new ArrayList<>();
 
 
 

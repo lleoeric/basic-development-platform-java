@@ -1,6 +1,7 @@
-package cn.leo.basic.model.system;
+package cn.leo.basic.model.system.entities;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
+import cn.leo.basic.model.system.base.Status;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,9 +10,9 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "system_login_log_entity")
-@Table(name = "system_login_log_entity")
-public class SystemLoginLogEntity extends BaseEntity {
+@Entity(name = "system_login_log")
+@Table(name = "system_login_log")
+public class SystemLoginLog extends BaseEntity {
     @Column(name = "username"/*,columnDefinition = "用户账号"*/)
     private String username;
 

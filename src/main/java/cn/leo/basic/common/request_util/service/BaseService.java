@@ -1,4 +1,4 @@
-package cn.leo.basic.common.service_util;
+package cn.leo.basic.common.request_util.service;
 
 import cn.leo.basic.model.base_entity.BaseEntity;
 import org.springframework.data.domain.Example;
