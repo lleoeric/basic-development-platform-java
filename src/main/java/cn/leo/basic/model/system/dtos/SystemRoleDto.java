@@ -1,11 +1,10 @@
 package cn.leo.basic.model.system.dtos;
 
+import cn.leo.basic.model.system.base.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,15 +14,32 @@ import java.util.UUID;
 /**
  * A DTO for the {@link cn.leo.basic.model.system.entities.SystemRole} entity
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class SystemRoleDto extends RepresentationModel<SystemRoleDto> implements Serializable {
+public class SystemRoleDto implements Serializable {
     private UUID id;
     private String roleName;
     private String roleCode;
     private String description;
-    private Collection<SystemUserDto> userList = new ArrayList<>();
+    private Collection<NestedSystemUserDto> userList = new ArrayList<>();
+
+    /**
+     * A DTO for the {@link cn.leo.basic.model.system.entities.SystemUser} entity
+     */
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Accessors(chain = true)
+    public static class NestedSystemUserDto implements Serializable {
+        private UUID id;
+        private String username;
+        private String password;
+        private String name;
+        private String phone;
+        private String headUrl;
+        private String description;
+        private Status status;
+    }
 }

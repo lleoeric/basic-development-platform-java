@@ -29,5 +29,19 @@ public class SystemUserDto implements Serializable {
     private SystemPostDto postId;
     private String description;
     private Status status;
-    private Collection<SystemRoleDto> roleList = new ArrayList<>();
+    private Collection<NestedSystemRoleDto> roleList = new ArrayList<>();
+
+    /**
+     * A DTO for the {@link cn.leo.basic.model.system.entities.SystemRole} entity
+     */
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Accessors(chain = true)
+    public static class NestedSystemRoleDto implements Serializable {
+        private UUID id;
+        private String roleName;
+        private String roleCode;
+        private String description;
+    }
 }

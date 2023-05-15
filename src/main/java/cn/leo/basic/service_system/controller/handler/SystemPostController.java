@@ -1,4 +1,4 @@
-package cn.leo.basic.service_system.controller;
+package cn.leo.basic.service_system.controller.handler;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;

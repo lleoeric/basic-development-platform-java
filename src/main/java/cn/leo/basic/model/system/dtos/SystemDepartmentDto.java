@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class SystemDepartmentDto implements Serializable {
+public class SystemDepartmentDto extends RepresentationModel<SystemDepartmentDto> implements Serializable {
     private UUID id;
     private String name;
     private String treePath;

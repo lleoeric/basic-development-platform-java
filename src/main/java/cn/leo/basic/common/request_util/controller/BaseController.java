@@ -9,15 +9,15 @@ public interface BaseController<E, ID> {
 
     ResponseEntity<E> one(ID id);
 
-    @GetMapping
+
     ResponseEntity<CollectionModel<EntityModel<E>>> all();
 
 
     ResponseEntity<?> delete(ID id);
 
-    @PatchMapping
-    ResponseEntity<?> update(E entity);
 
-    @PostMapping
+    ResponseEntity<?> update(ID id, E entity);
+
+
     ResponseEntity<?> save(E entity);
 }
